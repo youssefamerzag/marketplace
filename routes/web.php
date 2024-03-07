@@ -48,3 +48,6 @@ Route::put('product/edit/{product}', [ProductController::class, 'update'])->name
 
 //search
 Route::get('products/', [ProductController::class , 'search'])->name('products.search');
+
+//categories
+Route::get('produst/{category}', [ProductController::class, 'indexCategory'])->name('product-category');

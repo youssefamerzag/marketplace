@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('title');
             $table->float('price');
+            $table->string('address');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

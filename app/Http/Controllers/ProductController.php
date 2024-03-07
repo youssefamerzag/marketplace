@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -11,26 +12,38 @@ class ProductController extends Controller
 {
     public function index() {
         return view('product.index', [
-            'products' => Product::all()
+            'products' => Product::all(),
+            'categories' => Category::all()
         ]);
     }
 
     public function create() {
-        return view('product.create');
+        return view('product.create',[
+            'categories' => Category::all()
+        ]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request ) {
         $request->validate([
             'product-title' => 'required',
             'product-price' => 'required',
-            'product-image' => 'required'
+            'product-image' => 'required',
+            'category_id' => 'required',
         ]);
+
 
         $user = Auth::user();
 
         $product = new Product();
         $product->title = $request->input('product-title');
         $product->price = $request->input('product-price');
+        $product->address = $request->input('product-address');
+        
+        //decode json string 
+        $categoryObject = json_decode($request->input('category_id'));
+        $product->category_id = $categoryObject;
+
+
         $product->user_id = $user->id;
 
 
@@ -77,7 +90,7 @@ class ProductController extends Controller
         $request->validate([
             'product-title' => 'required',
             'product-price' => 'required',
-            'product-image' => 'required'
+            'product-image' => 'nullable'
         ]);
 
         $product = Product::find($id);
@@ -110,6 +123,14 @@ class ProductController extends Controller
 
         return view('product.search', [
             'products' => Product::where('title','like', '%' . $searchValue . '%')->get()
+        ]);
+    }
+
+    //category
+
+    public function indexCategory($category) {
+        return view('category.index', [
+            'products' => Product::where('category_id' , $category)->get()
         ]);
     }
 }

@@ -9,6 +9,7 @@
                     <div class="card-body">
                         <h1 class="card-title">{{ $user->name }}</h1>
                         <h5 class="card-subtitle mb-3 text-muted">{{ $user->email }}</h5>
+                        <h5 class="card-subtitle mb-3 text-muted">{{ $user->phone }}</h5>
                         <hr>
                         <div class="d-flex justify-content-between align-items-center">
                             <a href="{{ route('profile.profileEdit', $user->id) }}" class="btn btn-success">Edit Profile</a>

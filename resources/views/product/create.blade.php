@@ -20,6 +20,22 @@
             @enderror
         </div>
         <div class="m-3">
+            Address :
+            <input class="form-control" type="text" name="product-address">
+            @error('product-price')
+                Add price
+            @enderror
+        </div>
+
+        <div>
+            <select name="category_id">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="m-3">
             image :
             <input class="form-control" type="file" name="product-image">
             @error('product-image')
