@@ -34,14 +34,13 @@
         <a class="btn btn-sm btn-outline-secondary text-start me-2" href="{{ route('products-sortby')}}">Sort by Lowest First</a>
         <a class="btn btn-sm btn-outline-secondary text-start" href="{{ route('products-sortbydesc')}}">Sort by Highest First</a>
     </div>
-    
 
     <div class="container mt-4">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             @foreach($products as $product)
             <div class="col">
                 <div class="card h-100 shadow">
-                    <img src="images/{{ $product->image }}" class="card-img-top" alt="Product Image" style="height: 250px; object-fit: cover;">
+                    <img src="images/{{ $product->image }}" class="card-img-top" alt="Product Image" style="height: 200px; object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->title }}</h5>
                         <p class="card-text text-success">$ {{ $product->price }}</p>

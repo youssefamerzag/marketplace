@@ -80,6 +80,23 @@
         </main>
     </div>
 
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <p class="text-muted mb-0">&copy; Youssef Amerzag</p>
+                </div>
+                <div class="col-lg-6 col-md-12 mt-2 mt-lg-0">
+                    <ul class="list-inline text-lg-end text-center mb-0">
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/youssefamerzag/" class="text-muted">Linkedin</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/youssefamerzag" class="text-muted">Github</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
     <!-- Bootstrap JS (Make sure it's included after jQuery) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
