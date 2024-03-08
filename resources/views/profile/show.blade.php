@@ -1,31 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h1 class="card-title">{{ $user->name }}</h1>
-                        <h5 class="card-subtitle mb-3 text-muted">{{ $user->email }}</h5>
-                        <h5 class="card-subtitle mb-3 text-muted">{{ $user->phone }}</h5>
-                        <hr>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{ route('profile.profileEdit', $user->id) }}" class="btn btn-success">Edit Profile</a>
-                        </div>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <h1 class="card-title display-4">{{ $user->name }}</h1>
+                    <p class="card-text text-muted">Email: {{ $user->email }}</p>
+                    <p class="card-text text-muted">Phone: {{ $user->phone }}</p>
+                    <hr>
+                    <div class="d-grid gap-2">
+                        <a href="{{ route('profile.profileEdit', $user->id) }}" class="btn btn-success">Edit Profile</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
     
     
     <h1 class="text-center m-4">Products</h1>
 
     @if(Auth::check())
-        <a class="btn bg-success text-white ms-3" href="{{route('products.create')}}">Create New Product</a>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="text-center">
+                <a href="{{ route('products.create') }}" class="btn bg-success text-white ms-3">Create New Product</a>
+            </div>
+        </div>
+    </div>
     @endif
+
     <div class="container mt-4">
             <div class="row">
                 @foreach($products as $product)
