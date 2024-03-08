@@ -14,7 +14,24 @@ class ProductController extends Controller
         return view('product.index', [
             'products' => Product::all(),
             'categories' => Category::all()
-        ]);
+        ])
+        ;
+    }
+
+    public function sortby() {
+        return view('product.index', [
+            'products' => Product::all()->sortBy('price'),
+            'categories' => Category::all()
+        ])
+        ;
+    }
+
+    public function sortbydesc() {
+        return view('product.index', [
+            'products' => Product::all()->sortByDesc('price'),
+            'categories' => Category::all()
+        ])
+        ;
     }
 
     public function create() {

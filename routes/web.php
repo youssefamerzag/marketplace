@@ -51,3 +51,8 @@ Route::get('products/', [ProductController::class , 'search'])->name('products.s
 
 //categories
 Route::get('produst/{category}', [ProductController::class, 'indexCategory'])->name('product-category');
+
+
+//sort
+Route::get('higherToLower' , [ProductController::class , 'sortby'])->name('products-sortby');
+Route::get('lowerToHigher' , [ProductController::class , 'sortbydesc'])->name('products-sortbydesc');

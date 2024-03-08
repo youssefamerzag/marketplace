@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="card">
-        <div class="row align-items-start">
+    <div class="card ">
+        <div class="row align-items-start ">
             <div class="col-md-6">
                 <img src="{{ asset('images/' . $product->image) }}" class="img-fluid" alt="{{ $product->title }}">
             </div>
